@@ -171,3 +171,32 @@ svg {
   background-color: var(--bs-black);
   fill: white;
 }
+
+section.global-header{
+  background-color: var(--bs-black);
+  color:var(--bs-white);
+  display:flex;
+}
+section.global-header .site-title{
+  text-decoration: none;
+  color:var(--bs-white);
+  margin-right:auto !important;
+}
+
+.global-nav{
+  display:none;
+}
+#global-nav-toggle{
+  background-color: inherit;
+  border:none;
+  border-left:1px solid var(--bs-gray-500);
+  color:inherit;
+  padding:auto;
+  height:100%;
+}
+
+.icon{
+  color:white;
+  width:20px;
+  height:17px;
+}
