@@ -1,0 +1,13 @@
+#park-footer{
+    background:url("https://byui-cse.github.io/wdd231-course/images/topo_pattern.png");
+    padding:10px;
+  }
+  #park-footer h5, #park-footer h6{
+    margin: 5px 0;
+  }
+  #park-footer h5{
+    font-family: 'Times New Roman', Times, serif;
+  }
+  #park-footer h6 {
+    font-size:0.8em;
+  }

@@ -178,7 +178,7 @@ const park = {
   name: "Yellowstone",
   designation: "National Park"
 };
-park.infoLinks = [
+const infoLinks = [
   {
       name: "Current Conditions &#x203A;",
       link: "conditions.html",
@@ -199,7 +199,37 @@ park.infoLinks = [
       description: "Learn about the visitor centers in the park."
   }
 ];
+const baseUrl = "https://developer.nps.gov/api/v1/";
+const apiKey = import.meta.env.VITE_NPS_API_KEY;
+const parkCode = "zion";
 
-export function getParkData() {
-  return park;
+async function getJson(url){
+  const fetched = await fetch(url, {
+    method: "GET",
+    headers: {
+      "X-Api-Key": apiKey
+    }
+  });
+  if (!fetched.ok) {
+    throw new Error(`HTTP error! status: ${fetched.status}`);
+  }
+  return await fetched.json();
+}
+
+export async function getParkData() {
+  const data = await getJson(baseUrl + "parks" + "?parkCode=" + parkCode);
+  return data.data[0];
+}
+
+export async function getVisitorCenterData() {
+  const data = await getJson(baseUrl + "visitorcenters" + "?parkCode=" + parkCode);
+  return data.data[0];
+}
+
+
+export function getParkInfo(parkData) {
+  return infoLinks.map((entry,i) => {
+    entry.image = parkData.images[i+1].url;
+    return entry;
+  });
 }
