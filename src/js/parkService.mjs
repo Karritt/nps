@@ -201,7 +201,8 @@ const infoLinks = [
 ];
 const baseUrl = "https://developer.nps.gov/api/v1/";
 const apiKey = import.meta.env.VITE_NPS_API_KEY;
-const parkCode = "zion";
+const params = new URLSearchParams(window.location.search);
+const parkCode = params.get("p") ? params.get("p") : "zion";
 
 async function getJson(url){
   const fetched = await fetch(url, {
@@ -223,7 +224,17 @@ export async function getParkData() {
 
 export async function getVisitorCenterData() {
   const data = await getJson(baseUrl + "visitorcenters" + "?parkCode=" + parkCode);
-  return data.data[0];
+  return data.data;
+}
+
+export async function getAlertsData() {
+  const data = await getJson(baseUrl + "alerts" + "?limit=10&parkCode=" + parkCode);
+  return data.data;
+}
+
+export async function getActivitiesData() {
+  const data = await getJson(baseUrl + "activities" + "?parkCode=" + parkCode);
+  return data.data;
 }
 
 
@@ -233,3 +244,4 @@ export function getParkInfo(parkData) {
     return entry;
   });
 }
+
