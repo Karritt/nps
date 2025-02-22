@@ -54,11 +54,19 @@
             </svg>
             <span class="visually-hidden">Search</span>
           </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="./images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
+          <button id="global-nav-toggle" aria-expanded="false" aria-label="Open Menu">
+            <div id="global-nav-toggle__open">
+              <svg class="icon">
+                <use xlink:href="./images/sprite.symbol.svg#menu"></use>
+              </svg>
+              <span class="visually-hidden">Open</span> Menu
+            </div>
+            <div id="global-nav-toggle__close">
+              <svg class="icon">
+                <use xlink:href="./images/sprite.symbol.svg#close"></use>
+              </svg>
+              <span class="visually-hidden">Open</span> Menu
+            </div>
           </button>
         </div>
         <nav class="global-nav">
