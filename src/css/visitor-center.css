@@ -1,0 +1,35 @@
+ul.accordions {
+    list-style: none;
+    border: 1px solid #ccc;
+    margin:auto;
+    max-width: 70rem;
+    padding: 0;
+    border-radius: 0.5rem;
+}
+.accordion > h3 {
+    cursor: pointer;
+    width: 100%;
+    padding:1rem;
+    margin:0;
+    border-bottom: 1px solid #ccc;
+}
+.accordion > h3::after {
+    content: "▶";
+    padding-right:1rem;
+    right:7%;
+    position:absolute;
+    transition: 0.2s;
+}
+.accordion.active > h3 {
+    background-color: #e9ecef;
+}
+.accordion.active > h3::after {
+    transform: rotate(90deg);
+}
+.accordion > div {
+    padding: 0 1rem;
+    max-height:0;
+    overflow:hidden;
+    transition: 0.3s;
+    border-bottom: 1px solid #ccc;
+}

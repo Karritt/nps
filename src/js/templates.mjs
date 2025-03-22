@@ -36,8 +36,9 @@ export function alertCardTemplate(alert){
 }
 
 export function visitorServiceCardTemplate(service){
+    console.log(service);
     return `<div class="service-card">
-        <h5>${service.name}</h5>
+        <a href="visitor-center.html?c=${encodeURIComponent(service.id)}"><h5>${service.name}</h5></a>
         <p>${service.description}</p>
     </div>`;
 }

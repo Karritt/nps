@@ -227,6 +227,11 @@ export async function getVisitorCenterData() {
   return data.data;
 }
 
+export async function getParkVisitorCenterDetails(id) {
+  const data = await getJson(baseUrl + "visitorcenters?id=" + id);
+  return data.data[0];
+}
+
 export async function getAlertsData() {
   const data = await getJson(baseUrl + "alerts" + "?limit=10&parkCode=" + parkCode);
   return data.data;
